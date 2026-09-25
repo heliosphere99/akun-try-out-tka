@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - Try Out TKA</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Nunito', 'sans-serif'] },
+                    colors: { neutron: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8' } }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 flex min-h-screen">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white border-r border-slate-200 flex flex-col hidden md:flex">
+        <div class="h-16 flex items-center px-6 border-b border-slate-100">
+            <div class="w-8 h-8 bg-neutron-600 rounded-lg flex items-center justify-center text-white font-bold mr-3">N</div>
+            <span class="font-bold text-lg">Admin Panel</span>
+        </div>
+        <nav class="flex-1 p-4 space-y-1">
+            <a href="dashboard.html" class="flex items-center px-4 py-3 bg-neutron-50 text-neutron-600 rounded-xl font-bold">
+                Dashboard Utama
+            </a>
+            <a href="sekolah.html" class="flex items-center px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-neutron-600 rounded-xl font-semibold transition-colors">
+                Data Sekolah
+            </a>
+            <a href="peserta.html" class="flex items-center px-4 py-3 text-slate-500 hover:bg-slate-50 hover:text-neutron-600 rounded-xl font-semibold transition-colors">
+                Data Peserta & TO
+            </a>
+        </nav>
+        <div class="p-4 border-t border-slate-100">
+            <button onclick="logoutAdmin()" class="w-full flex items-center justify-center gap-2 px-4 py-3 text-red-500 hover:bg-red-50 rounded-xl font-bold transition-colors">
+                Keluar
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-screen overflow-y-auto">
+        <header class="h-16 bg-white border-b border-slate-200 flex items-center px-8 justify-between sticky top-0 z-10">
+            <h1 class="text-xl font-bold">Dashboard Utama</h1>
+            <div class="flex gap-2 items-center text-sm font-semibold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full">
+                <span class="w-2 h-2 rounded-full bg-green-500"></span> Online
+            </div>
+        </header>
+
+        <div class="p-8">
+            <div class="bg-neutron-600 rounded-2xl p-8 text-white shadow-lg shadow-neutron-500/30">
+                <h2 class="text-2xl font-bold mb-2">Selamat Datang di Panel Admin! 🎉</h2>
+                <p class="text-neutron-100">Anda berhasil masuk. Di sini Anda dapat mengatur data sekolah, konfigurasi Try Out, dan mengunggah data peserta secara statis.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../assets/js/admin.js"></script>
+    <script>
+        // --- PROTEKSI HALAMAN (Panggil fungsi dari admin.js) ---
+        // Jika belum login, ini akan menendang user kembali ke login.html
+        checkAuth();
+    </script>
+</body>
+</html>

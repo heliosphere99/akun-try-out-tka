@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akun Try Out TKA - Lembimjar Neutron Yogyakarta</title>
+    
+    <!-- Font Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                    },
+                    colors: {
+                        neutron: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col font-sans text-slate-800">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <!-- Placeholder Logo -->
+                <div class="w-10 h-10 bg-neutron-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                    N
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight text-slate-800">Akun Try Out TKA</h1>
+                    <p class="text-xs text-slate-500 font-semibold">Lembimjar Neutron Yogyakarta</p>
+                </div>
+            </div>
+            
+            <!-- Tombol Login Admin (Inkonspikatif) -->
+            <a href="pages/admin/login.html" class="text-sm font-semibold text-slate-400 hover:text-neutron-600 transition-colors px-3 py-2 rounded-md hover:bg-slate-50">
+                Admin
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-3xl mx-auto w-full px-4 py-8 flex flex-col gap-6">
+        
+        <!-- Info Sekolah & Try Out (Nanti di-populate via JS) -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
+            <h2 class="text-lg font-bold text-neutron-700 border-b pb-3 mb-4" id="nama-sekolah-display">Memuat Informasi Sekolah...</h2>
+            
+            <div class="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                    <p class="text-slate-400 text-xs uppercase tracking-wider mb-1">Tanggal Tes</p>
+                    <p class="font-semibold text-slate-700" id="tgl-tes-display">-</p>
+                </div>
+                <div>
+                    <p class="text-slate-400 text-xs uppercase tracking-wider mb-1">Durasi</p>
+                    <p class="font-semibold text-slate-700" id="durasi-display">-</p>
+                </div>
+                <div>
+                    <p class="text-slate-400 text-xs uppercase tracking-wider mb-1">Akses Dibuka</p>
+                    <p class="font-semibold text-slate-700" id="buka-display">-</p>
+                </div>
+                <div>
+                    <p class="text-slate-400 text-xs uppercase tracking-wider mb-1">Akses Ditutup</p>
+                    <p class="font-semibold text-slate-700" id="tutup-display">-</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Pencarian -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 text-center">
+            <h3 class="text-xl font-bold mb-2">Cari Akun Anda</h3>
+            <p class="text-sm text-slate-500 mb-6">Ketik minimal 3 huruf nama Anda untuk memunculkan kredensial Try Out.</p>
+            
+            <div class="relative max-w-md mx-auto">
+                <input type="text" id="search-input" autocomplete="off" placeholder="Masukkan nama peserta..." 
+                    class="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-neutron-500 focus:ring-4 focus:ring-neutron-100 outline-none transition-all text-slate-700 font-semibold">
+                <svg class="w-6 h-6 text-slate-400 absolute left-4 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+        </div>
+
+        <!-- Hasil Pencarian akan di-render di sini oleh JavaScript -->
+        <div id="search-results" class="flex flex-col gap-4"></div>
+
+    </main>
+
+    <footer class="text-center py-6 text-xs text-slate-400 font-semibold">
+        &copy; 2026 Lembimjar Neutron Yogyakarta.
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/js/public.js"></script>
+</body>
+</html>
