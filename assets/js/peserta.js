@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('to-buka').value = data.waktu_dibuka || '';
         document.getElementById('to-tutup').value = data.waktu_selesai || '';
         document.getElementById('to-durasi').value = data.durasi_menit || '';
+        // Tambahan kode:
+        document.getElementById('to-status').value = data.status_publik || 'aktif';
     } catch (err) {
         console.warn("Gagal memuat data TO saat ini", err);
     }
@@ -31,7 +33,10 @@ document.getElementById('form-tryout').addEventListener('submit', (e) => {
         tanggal_tes: document.getElementById('to-tanggal').value,
         waktu_dibuka: document.getElementById('to-buka').value,
         waktu_selesai: document.getElementById('to-tutup').value,
-        durasi_menit: parseInt(document.getElementById('to-durasi').value)
+        durasi_menit: parseInt(document.getElementById('to-durasi').value),
+        
+        // Tambahan kode:
+        status_publik: document.getElementById('to-status').value
     };
 
     downloadJSON(tryoutData, 'data_tryout.json');
